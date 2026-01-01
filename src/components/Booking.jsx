@@ -83,7 +83,8 @@ const Booking = () => {
             Ayo Buruan!
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Jadwalkan service electronic Anda
+            Jadwalkan service electronic Anda<br />
+            sekarang
           </p>
         </motion.div>
 
@@ -95,15 +96,15 @@ const Booking = () => {
             className="space-y-6"
           >
             <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Kenapa Booking Online?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Keuntungan Booking</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Hemat Waktu</h4>
-                    <p className="text-gray-600 text-sm">Tidak perlu antre, langsung datang sesuai jadwal</p>
+                    <h4 className="font-semibold text-gray-900 mb-1">Efisien</h4>
+                    <p className="text-gray-600 text-sm">Langsung datang sesuai waktu</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -111,7 +112,7 @@ const Booking = () => {
                     <span className="text-white text-xs">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Jadwal Fleksibel</h4>
+                    <h4 className="font-semibold text-gray-900 mb-1">Fleksibel</h4>
                     <p className="text-gray-600 text-sm">Pilih waktu yang paling sesuai dengan jadwal Anda</p>
                   </div>
                 </li>
@@ -122,11 +123,6 @@ const Booking = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Konfirmasi Cepat</h4>
                     <p className="text-gray-600 text-sm">Langsung mendapat konfirmasi melalui WhatsApp</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-xs">✓</span>
                   </div>
                 </li>
               </ul>
@@ -224,8 +220,12 @@ const Booking = () => {
                   <option value="Mesin Cuci">Perbaikan Mesin Cuci</option>
                   <option value="Kompor">Perbaikan Kompor</option>
                   <option value="Magic Com">Perbaikan Magic Com</option>
-                  <option value="Tv">Perbaikan Set Top Box</option>
+                  <option value="Set Top Box">Perbaikan Set Top Box</option>
                   <option value="Setrika">Perbaikan Setrika</option>
+                  <option value="Raket Nyamuk">Perbaikan Raket Nyamuk</option>
+                  <option value="Regulator Gas">Perbaikan Regulator Gas</option>
+                  <option value="Pompa Air">Perbaikan Pompa Air</option>
+                  <option value="Speaker Activ">Perbaikan Speaker Activ</option>
                 </select>
               </div>
 

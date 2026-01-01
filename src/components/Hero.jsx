@@ -29,7 +29,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1"
+            className="text-white flex flex-col items-center order-2 lg:order-1"
           >
             {/* Badge */}
             <motion.div
@@ -44,7 +44,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-center">
               Service Electronic
               <span className="block text-red-100">
                 Cepat & Terpercaya
@@ -52,45 +52,45 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-sm sm:text-base lg:text-lg text-red-50 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base lg:text-lg text-red-50 mb-6 sm:mb-8 leading-relaxed max-w-xl text-center">
               Teknisi berpengalaman siap menangani kerusakan elektronik Anda
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto justify-center">
               <Button
-                onClick={() => scrollToSection('booking')}
+                onClick={() => scrollToSection('gallery')}
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full sm:w-auto"
+                className="border-2 border-white text-white hover:bg-white hover:text-red-600 focus:bg-transparent focus:text-white active:bg-transparent active:text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full sm:w-auto transition-colors duration-200 [-webkit-tap-highlight-color:transparent] outline-none"
               >
-                Booking Sekarang
+                Galeri
               </Button>
 
               <Button
                 onClick={() => scrollToSection('contact')}
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full sm:w-auto"
+                className="border-2 border-white text-white hover:bg-white hover:text-red-600 focus:bg-transparent focus:text-white active:bg-transparent active:text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full sm:w-auto transition-colors duration-200 [-webkit-tap-highlight-color:transparent] outline-none"
               >
                 Hubungi Kami
               </Button>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-md lg:max-w-none">
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-md">
+              <div className="flex items-center gap-2 justify-center">
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-200 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">Garansi Service</span>
               </div>
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
+              <div className="flex items-center gap-2 justify-center">
                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-200 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">Proses Cepat</span>
               </div>
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
+              <div className="flex items-center gap-2 justify-center">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-red-200 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">Teknisi Ahli</span>
               </div>
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
+              <div className="flex items-center gap-2 justify-center">
                 <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-red-200 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">Spare Part Original</span>
               </div>
@@ -102,7 +102,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-1 lg:order-2"
+            className="relative order-1 lg:order-2 pb-8 sm:pb-0"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
@@ -113,7 +113,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-red-900/50 to-transparent" />
             </div>
 
-            {/* Stats Badge - Hidden on mobile to avoid layout issues */}
+            {/* Stats Badge - Tampil di semua ukuran layar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

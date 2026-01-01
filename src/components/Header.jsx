@@ -6,14 +6,33 @@ import { Button } from '../ui/button';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Set background when scrolled
+      setIsScrolled(currentScrollY > 20);
+      
+      // Hide header on mobile when scrolling down
+      if (window.innerWidth < 1024) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsHidden(true);
+        } else {
+          setIsHidden(false);
+        }
+      } else {
+        setIsHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -26,7 +45,8 @@ const Header = () => {
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: isHidden ? -100 : 0 }}
+      transition={{ duration: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
       }`}
@@ -43,7 +63,7 @@ const Header = () => {
             </div>
             <div>
               <h2 className="text-xl font-bold text-gray-900">Sejahtera Service</h2>
-              <p className="text-xs text-red-600">Solusi Kualitas Service</p>
+              <p className="text-xs text-center text-red-600">Solusi Kualitas Service</p>
             </div>
           </motion.div>
 
@@ -110,15 +130,15 @@ const Header = () => {
                 KONTAK
               </button>
               <a 
-              href="https://wa.me/6281392813981"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                0813-9281-3981
-              </Button>
-            </a>
+                href="https://wa.me/6281392813981"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  0813-9281-3981
+                </Button>
+              </a>
             </nav>
           </motion.div>
         )}

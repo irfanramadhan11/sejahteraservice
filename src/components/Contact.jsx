@@ -178,8 +178,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Alamat</h4>
                     <p className="text-gray-600">
-                      Jl. Anggrek Grendeng, Purwokerto Utara<br />
-                      Banyumas Kode Pos 53122
+                      Jl. Anggrek Grendeng<br />
+                      Purwokerto Utara Kode Pos 53122
                     </p>
                   </div>
                 </div>

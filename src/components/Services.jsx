@@ -1,11 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useToast } from '../ui/use-toast';
-import { Fan, WashingMachine, Flame, CookingPot, Tv, Zap } from 'lucide-react';
+import { Fan, WashingMachine, Flame, CookingPot, Tv, Zap, Bug, Gauge, Droplets, Volume2 } from 'lucide-react';
 
 const Services = () => {
-  const { toast } = useToast();
-
   const services = [
     {
       icon: Fan,
@@ -36,6 +33,26 @@ const Services = () => {
       icon: Zap,
       title: 'Perbaikan Setrika',
       color: 'from-red-700 to-red-800'
+    },
+    {
+      icon: Bug,
+      title: 'Perbaikan Raket Nyamuk',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      icon: Gauge,
+      title: 'Perbaikan Regulator Gas',
+      color: 'from-red-600 to-red-700'
+    },
+    {
+      icon: Droplets,
+      title: 'Perbaikan Pompa Air',
+      color: 'from-red-700 to-red-800'
+    },
+    {
+      icon: Volume2,
+      title: 'Perbaikan Speaker Aktif',
+      color: 'from-red-500 to-red-600'
     }
   ];
 

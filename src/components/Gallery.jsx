@@ -8,33 +8,53 @@ const Gallery = () => {
   const galleryItems = [
     {
       title: 'Perbaikan Kipas Angin',
-      description: 'Ganti kapasitor dan dinamo',
-      category: 'Kipas Angin'
+      category: 'Kipas Angin',
+      image: 'https://images.unsplash.com/photo-1665298455913-dd43714f5ad1?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       title: 'Perbaikan Mesin Cuci',
-      description: 'Kelistrikan terputus sehingga mesin mati',
-      category: 'Mesin Cuci'
+      category: 'Mesin Cuci',
+      image: 'https://images.unsplash.com/photo-1662220984920-3bd1f88e846f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       title: 'Perbaikan Kompor',
-      description: 'Api menyala kecil',
-      category: 'Kompor'
+      category: 'Kompor',
+      image: 'https://plus.unsplash.com/premium_photo-1661889228348-3928f5df1239?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       title: 'Perbaikan Magic Com',
-      description: 'Ganti Element Heater Pemanas',
-      category: 'Magic Com'
+      category: 'Magic Com',
+      image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       title: 'Perbaikan Set Top Box',
-      description: 'Mati total',
-      category: 'Televisi'
+      category: 'Televisi',
+      image: 'https://images.unsplash.com/photo-1574974409771-cebec54deb00?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       title: 'Perbaikan Setrika',
-      description: 'Setrika tidak panas',
-      category: 'Setrika'
+      category: 'Setrika',
+      image: 'https://images.unsplash.com/photo-1540544093-b0880061e1a5?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      title: 'Perbaikan Raket Nyamuk',
+      category: 'Raket Nyamuk',
+      image: 'https://images.unsplash.com/photo-1615326882458-e0d45b097f55?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      title: 'Perbaikan Regulator Gas',
+      category: 'Regulator Gas',
+      image: 'https://images.unsplash.com/photo-1759750951607-703dd5c997ec?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      title: 'Perbaikan Pompa Air',
+      category: 'Pompa Air',
+      image: 'https://images.unsplash.com/photo-1639600993675-2281b2c939f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      title: 'Perbaikan Speaker Aktif',
+      category: 'Speaker Aktif',
+      image: 'https://images.unsplash.com/photo-1531104985437-603d6490e6d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D'
     }
   ];
 
@@ -54,7 +74,7 @@ const Gallery = () => {
             Portfolio
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Menangani berbagai jenis perbaikan perangkat elektronik
+            Beberapa jenis perangkat elektronik
           </p>
         </motion.div>
 
@@ -70,10 +90,14 @@ const Gallery = () => {
               onClick={() => setSelectedImage(index)}
               className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-lg"
             >
-              <img alt={`${item.title} - professional electronics repair work`} className="w-full h-80 object-cover" src="https://images.unsplash.com/photo-1592659762303-90081d34b277?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+              <img 
+                alt={`${item.title} - professional electronics repair work`} 
+                className="w-full h-80 object-cover" 
+                src={item.image}
+              />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:transform md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">
                   <span className="inline-block bg-red-600 px-3 py-1 rounded-full text-xs font-semibold mb-2">
                     {item.category}
                   </span>
@@ -107,7 +131,11 @@ const Gallery = () => {
                 >
                   <X className="w-8 h-8" />
                 </button>
-                <img alt={`${galleryItems[selectedImage].title} - enlarged view`} className="w-full h-auto rounded-2xl" src="https://images.unsplash.com/photo-1629741120780-10776e56a91b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                <img 
+                  alt={`${galleryItems[selectedImage].title} - enlarged view`} 
+                  className="w-full h-auto rounded-2xl" 
+                  src={galleryItems[selectedImage].image}
+                />
                 <div className="bg-white rounded-b-2xl p-6">
                   <span className="inline-block bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                     {galleryItems[selectedImage].category}
@@ -115,9 +143,6 @@ const Gallery = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {galleryItems[selectedImage].title}
                   </h3>
-                  <p className="text-gray-600">
-                    {galleryItems[selectedImage].description}
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
