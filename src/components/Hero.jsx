@@ -58,7 +58,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center">
               <Button
-                onClick={() => scrollToSection('Booking')}
+                onClick={() => scrollToSection('booking')}
                 size="lg"
                 className="rounded-full bg-white text-black hover:bg-gray-100 font-semibold px-8 py-6 w-auto"
               >
