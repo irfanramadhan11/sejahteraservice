@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
@@ -17,32 +16,32 @@ const Footer = () => {
         <div className="flex flex-col items-center mb-12 max-w-md mx-auto">
           
           {/* BRAND */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center mb-8"
-          >
+          <div className="flex flex-col items-center mb-8">
             {/* LOGO */}
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">SS</span>
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <div 
+                  className="absolute w-0 h-0 top-0"
+                  style={{
+                    borderLeft: '24px solid transparent',
+                    borderRight: '24px solid transparent',
+                    borderTop: '40px solid #dc2626',
+                    filter: 'drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2))'
+                  }}
+                />
+                <span className="relative z-10 text-white font-bold text-lg tracking-wide" style={{ marginTop: '-18px' }}>
+                  SS
+                </span>
               </div>
               <div>
                 <span className="text-2xl font-bold block">Sejahtera Service</span>
                 <p className="text-sm text-center text-red-400">Solusi Kualitas Service</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* CONTACT */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col items-center"
-          >
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold mb-6">Kontak</h3>
 
             <ul className="space-y-6">
@@ -70,7 +69,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         {/* BOTTOM */}

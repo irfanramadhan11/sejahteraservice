@@ -56,10 +56,21 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">SS</span>
+            <div className="relative w-12 h-12 flex items-center justify-center">
+              <div 
+                className="absolute w-0 h-0 top-0"
+                style={{
+                  borderLeft: '24px solid transparent',
+                  borderRight: '24px solid transparent',
+                  borderTop: '40px solid #dc2626',
+                  filter: 'drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2))'
+                }}
+              />
+              <span className="relative z-10 text-white font-bold text-lg tracking-wide" style={{ marginTop: '-18px' }}>
+                SS
+              </span>
             </div>
             <div>
               <h2 className="text-xl font-bold text-gray-900">Sejahtera Service</h2>
@@ -73,9 +84,6 @@ const Header = () => {
             </button>
             <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">
               LAYANAN
-            </button>
-            <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">
-              GALERI
             </button>
             <button onClick={() => scrollToSection('booking')} className="text-gray-700 hover:text-red-600 transition-colors font-medium">
               BOOKING
@@ -119,9 +127,6 @@ const Header = () => {
               </button>
               <button onClick={() => scrollToSection('services')} className="text-left text-gray-700 hover:text-red-600 transition-colors font-medium">
                 LAYANAN
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="text-left text-gray-700 hover:text-red-600 transition-colors font-medium">
-                GALERI
               </button>
               <button onClick={() => scrollToSection('booking')} className="text-left text-gray-700 hover:text-red-600 transition-colors font-medium">
                 BOOKING
