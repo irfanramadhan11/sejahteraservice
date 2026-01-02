@@ -24,7 +24,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-12 items-center">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -41,36 +41,37 @@ const Hero = () => {
               className="inline-block bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             >
               <span className="text-xs sm:text-sm font-semibold">
-                Layanan Profesional
+                Layanan Perbaikan
               </span>
             </motion.div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-center">
-              Service Electronic
+              Sejahtera Service
               <span className="block text-red-100">
-                Cepat & Terpercaya
+                Electronic
               </span>
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-red-50 mb-6 sm:mb-8 leading-relaxed max-w-xl text-center">
-              Teknisi berpengalaman siap menangani kerusakan elektronik Anda
+              Teknisi kami siap menangani kerusakan elektronik Anda<br />
+              Silakan tekan tombol di bawah
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center">
               <Button
                 onClick={() => scrollToSection('booking')}
                 size="lg"
-                className="rounded-full bg-white text-black hover:bg-gray-100 font-semibold px-8 py-6 w-auto"
+                className="
+                  rounded-full 
+                  bg-white text-black 
+                  hover:bg-gray-100 
+                  font-semibold 
+                  w-12 h-12 
+                  p-0 
+                  flex items-center justify-center
+                "
               >
-                Booking
-              </Button>
-
-              <Button
-                onClick={() => scrollToSection('contact')}
-                size="lg"
-                className="rounded-full bg-white text-black hover:bg-gray-100 font-semibold px-8 py-6 w-auto"
-              >
-                Hubungi Kami
+                Klik
               </Button>
             </div>
 
@@ -99,15 +100,14 @@ const Hero = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-1 lg:order-2 pb-4 sm:pb-0"
+            className="relative order-1 lg:order-2 pb-0 sm:pb-0"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative">
               <img
                 src={heroImage} 
                 alt="Teknisi service elektronik"
                 className="w-full h-auto object-contain"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/30 to-transparent" />
             </div>
           </motion.div>
 

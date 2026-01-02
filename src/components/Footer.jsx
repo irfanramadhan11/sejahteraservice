@@ -42,7 +42,6 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-bold mb-6">Kontak</h3>
 
             <ul className="space-y-6">
               {/* EMAIL */}

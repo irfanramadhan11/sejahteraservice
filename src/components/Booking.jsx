@@ -11,7 +11,7 @@ const Booking = () => {
     phone: '',
     email: '',
     service: '',
-    device: '',
+    merk: '',
     date: '',
     time: '',
     message: ''
@@ -41,7 +41,7 @@ const Booking = () => {
     Nomor WhatsApp: ${formData.phone}\n
     Email: ${formData.email || '-'}\n
     Layanan: ${formData.service}\n
-    Device: ${formData.device || '-'}\n
+    Merk: ${formData.merk || '-'}\n
     Tanggal: ${formData.date}\n
     Waktu: ${formData.time}\n
     Deskripsi: ${formData.message || '-'}`;
@@ -60,7 +60,7 @@ const Booking = () => {
       phone: '',
       email: '',
       service: '',
-      device: '',
+      merk: '',
       date: '',
       time: '',
       message: ''
@@ -225,7 +225,7 @@ const Booking = () => {
                   <option value="Raket Nyamuk">Perbaikan Raket Nyamuk</option>
                   <option value="Regulator Gas">Perbaikan Regulator Gas</option>
                   <option value="Pompa Air">Perbaikan Pompa Air</option>
-                  <option value="Speaker Activ">Perbaikan Speaker Activ</option>
+                  <option value="Speaker">Perbaikan Speaker</option>
                 </select>
               </div>
 
@@ -235,8 +235,8 @@ const Booking = () => {
                 </label>
                 <input
                   type="text"
-                  name="device"
-                  value={formData.device}
+                  name="merk"
+                  value={formData.merk}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                 />

@@ -73,8 +73,8 @@ const Header = () => {
               </span>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-900">Sejahtera Service</h2>
-              <p className="text-xs text-center text-red-600">Solusi Kualitas Service</p>
+              <h2 className="text-2xl font-bold text-gray-900">Sejahtera Service</h2>
+              <p className="text-sm text-center text-red-400">Solusi Kualitas Service</p>
             </div>
           </motion.div>
 
@@ -99,9 +99,16 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                0813-9281-3981
+              <Button
+                className="bg-gradient-to-r from-red-600 to-red-700 
+                          hover:from-red-700 hover:to-red-800 
+                          text-white 
+                          w-12 h-12 
+                          rounded-full 
+                          flex items-center justify-center"
+                title="Hubungi via WhatsApp"
+              >
+                <Phone className="w-5 h-5" />
               </Button>
             </a>
           </div>
@@ -135,15 +142,22 @@ const Header = () => {
                 KONTAK
               </button>
               <a 
-                href="https://wa.me/6281392813981"
-                target="_blank"
-                rel="noopener noreferrer"
+              href="https://wa.me/6281392813981"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                className="bg-gradient-to-r from-red-600 to-red-700 
+                          hover:from-red-700 hover:to-red-800 
+                          text-white 
+                          w-12 h-12 
+                          rounded-full 
+                          flex items-center justify-center"
+                title="Hubungi via WhatsApp"
               >
-                <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  0813-9281-3981
-                </Button>
-              </a>
+                <Phone className="w-5 h-5" />
+              </Button>
+            </a>
             </nav>
           </motion.div>
         )}

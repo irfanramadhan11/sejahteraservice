@@ -10,14 +10,14 @@ const Services = () => {
     {
       icon: Fan,
       title: 'Perbaikan Kipas Angin',
-      description: 'Service dan perbaikan kipas angin segala merk dengan teknisi berpengalaman',
+      description: 'Service kipas angin dengan segala merk',
       color: 'from-red-500 to-red-600',
       image: 'https://images.unsplash.com/photo-1665298455913-dd43714f5ad1?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: WashingMachine,
       title: 'Perbaikan Mesin Cuci',
-      description: 'Perbaikan mesin cuci 1 tabung dan 2 tabung dengan spare part original',
+      description: 'Service mesin cuci 1 tabung dan 2 tabung dengan spare part original',
       color: 'from-red-600 to-red-700',
       image: 'https://images.unsplash.com/photo-1662220984920-3bd1f88e846f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
@@ -31,7 +31,7 @@ const Services = () => {
     {
       icon: CookingPot,
       title: 'Perbaikan Magic Com',
-      description: 'Perbaikan rice cooker dan magic com segala merk dengan garansi',
+      description: 'Service rice cooker atau magic com segala merk dengan garansi',
       color: 'from-red-500 to-red-600',
       image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
@@ -45,7 +45,7 @@ const Services = () => {
     {
       icon: Zap,
       title: 'Perbaikan Setrika',
-      description: 'Perbaikan setrika listrik dan uap dengan hasil seperti baru',
+      description: 'Service setrika listrik dan uap dengan hasil seperti baru',
       color: 'from-red-700 to-red-800',
       image: 'https://images.unsplash.com/photo-1540544093-b0880061e1a5?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
@@ -59,7 +59,7 @@ const Services = () => {
     {
       icon: Gauge,
       title: 'Perbaikan Regulator Gas',
-      description: 'Perbaikan dan service regulator gas dengan standar keamanan tinggi',
+      description: 'Service regulator gas dengan standar keamanan tinggi',
       color: 'from-red-600 to-red-700',
       image: 'https://images.unsplash.com/photo-1759750951607-703dd5c997ec?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
@@ -72,17 +72,29 @@ const Services = () => {
     },
     {
       icon: Volume2,
-      title: 'Perbaikan Speaker Aktif',
-      description: 'Perbaikan speaker aktif dan sound system dengan kualitas audio terbaik',
+      title: 'Perbaikan Speaker',
+      description: 'Service speaker aktif dan sound system dengan kualitas audio terbaik',
       color: 'from-red-500 to-red-600',
       image: 'https://images.unsplash.com/photo-1531104985437-603d6490e6d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D'
     }
   ];
 
-  const handleServiceClick = (serviceTitle) => {
+  const handleServiceClick = (e, serviceTitle) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const bookingSection = document.getElementById('booking');
+    
     if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Scroll ke booking section
+      bookingSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+      
+      console.log('Scrolling to booking section with service:', serviceTitle);
+    } else {
+      console.error('Booking section not found!');
     }
   };
 
@@ -101,10 +113,11 @@ const Services = () => {
               LAYANAN KAMI
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Service Electronic Profesional
+              Service Electronic Berkualitas
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Melayani perbaikan dan maintenance pada berbagai perangkat elektronik dengan teknisi berpengalaman
+              Menangani perbaikan dan maintenance<br />
+              dengan profesional dan berpengalaman
             </p>
           </motion.div>
 
@@ -122,11 +135,11 @@ const Services = () => {
                 }}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 {/* Image Section */}
                 <div 
-                  className="relative h-64 overflow-hidden"
+                  className="relative h-64 overflow-hidden cursor-pointer"
                   onClick={() => setSelectedImage(index)}
                 >
                   <motion.img
@@ -161,8 +174,6 @@ const Services = () => {
                   >
                     <service.icon className="w-7 h-7 text-red-600" />
                   </motion.div>
-
-
                 </div>
 
                 {/* Content Section */}
@@ -185,16 +196,17 @@ const Services = () => {
                   </p>
 
                   <button
-                    onClick={() => handleServiceClick(service.title)}
+                    onClick={(e) => handleServiceClick(e, service.title)}
                     className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold py-3 rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Buruan Service</span>
+                    <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
 
                 {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 border-2 border-red-600 rounded-2xl"
+                  className="absolute inset-0 border-2 border-red-600 rounded-2xl pointer-events-none"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ 
                     opacity: hoveredIndex === index ? 1 : 0,

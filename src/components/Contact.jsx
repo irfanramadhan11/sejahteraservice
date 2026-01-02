@@ -126,20 +126,23 @@ const Contact = () => {
             KONTAK
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Ada Pertanyaan?
+            Ada Keluhan?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Siap menjawab dan memberikan solusi terbaik
+            Kami siap menjawab dan memberikan<br />
+            solusi terbaik
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* KOLOM KIRI */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
+            {/* Informasi Kontak */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Informasi</h3>
               <div className="space-y-6">
@@ -186,6 +189,7 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Google Maps */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <div className="relative w-full h-[280px] sm:h-[320px] lg:h-[360px]">
                 <iframe
@@ -199,12 +203,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* KOLOM KANAN */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-8"
           >
+            {/* Form Tulis Ulasan */}
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Tulis Ulasan</h3>
               <div className="space-y-4">
@@ -269,6 +275,7 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Ulasan Pelanggan */}
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">Ulasan Pelanggan</h3>
@@ -412,12 +419,13 @@ const Contact = () => {
                         >
                           Batal
                         </button>
-                        <Button
+                        <button
+                          type="button"
                           onClick={handleAdminLogout}
-                          className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3"
+                          className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition-all"
                         >
                           Logout
-                        </Button>
+                        </button>
                       </div>
                     </div>
                   </motion.div>
