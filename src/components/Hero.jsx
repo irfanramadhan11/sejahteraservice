@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800"
+      className="relative pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 lg:min-h-screen lg:flex lg:items-center lg:pt-0 lg:pb-0 overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800"
     >
       {/* Background blur */}
       <div className="absolute inset-0 opacity-10">
@@ -72,7 +72,7 @@ const Hero = () => {
                   rounded-full 
                   bg-white 
                   hover:bg-gray-50
-                  w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20
+                  w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18
                   p-0 
                   flex items-center justify-center
                   shadow-2xl
