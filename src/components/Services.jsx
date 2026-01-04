@@ -116,8 +116,7 @@ const Services = () => {
               Service Electronic Berkualitas
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Menangani perbaikan dan maintenance<br />
-              dengan profesional dan berpengalaman
+              Menangani perbaikan dan maintenance dengan profesional dan berpengalaman
             </p>
           </motion.div>
 
@@ -228,44 +227,28 @@ const Services = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 bg-black/98 flex items-center justify-center cursor-pointer overflow-hidden"
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center cursor-pointer p-4"
           >
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
               className="absolute top-6 right-6 text-white hover:text-red-500 transition-colors bg-white/10 hover:bg-white/20 rounded-full p-3 backdrop-blur-sm z-10"
             >
               <X className="w-8 h-8" />
             </button>
             
             <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
               onClick={(e) => e.stopPropagation()}
               src={services[selectedImage].image}
               alt={services[selectedImage].title}
-              className="max-w-[95vw] max-h-[95vh] object-contain cursor-default"
+              className="max-w-full max-h-full object-contain cursor-default"
             />
-
-            {/* Image Info */}
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md rounded-2xl px-6 py-4 text-white"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 bg-gradient-to-br ${services[selectedImage].color} rounded-lg flex items-center justify-center`}>
-                  {React.createElement(services[selectedImage].icon, { className: "w-5 h-5 text-white" })}
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">{services[selectedImage].title}</h3>
-                  <p className="text-sm text-gray-300">{services[selectedImage].description}</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

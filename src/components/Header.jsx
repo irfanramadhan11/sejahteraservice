@@ -89,6 +89,12 @@ const Header = () => {
               <div className="relative w-12 h-12 flex items-center justify-center">
                 <div 
                   className="absolute w-0 h-0 top-0"
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
                   style={{
                     borderLeft: '24px solid transparent',
                     borderRight: '24px solid transparent',

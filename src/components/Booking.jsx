@@ -36,24 +36,58 @@ const Booking = () => {
       return;
     }
 
-    const message = `Halo, ada booking baru dari pelanggan:\n
-    Nama: ${formData.name}\n
-    Nomor WhatsApp: ${formData.phone}\n
-    Email: ${formData.email || '-'}\n
-    Layanan: ${formData.service}\n
-    Merk: ${formData.merk || '-'}\n
-    Tanggal: ${formData.date}\n
-    Waktu: ${formData.time}\n
-    Deskripsi: ${formData.message || '-'}`;
+    // Format tanggal ke format Indonesia
+    const formatDate = (dateStr) => {
+      const months = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      ];
+      const date = new Date(dateStr);
+      const day = date.getDate();
+      const month = months[date.getMonth()];
+      const year = date.getFullYear();
+      return `${day} ${month} ${year}`;
+    };
 
-  // Nomor WhatsApp kamu (format internasional tanpa +)
-  const waNumber = '6281392813981'; 
+    const formattedDate = formatDate(formData.date);
 
-  // Encode URL agar aman
-  const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+    const message = `🔔 *BOOKING BARU - SEJAHTERA SERVICE* 🔔
 
-  // Buka WhatsApp agar kamu menerima pesan
-  window.open(waUrl, '_blank');
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+    *DATA PELANGGAN*
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Nama : *${formData.name}*
+    Email : ${formData.email || '-'}
+    WhatsApp : ${formData.phone}
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+    *DETAIL SERVICE*
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Jenis Layanan : *${formData.service}*
+    Merk : ${formData.merk || '-'}
+    Tanggal : *${formattedDate}*
+    Waktu : *${formData.time}*
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+    *DESKRIPSI KERUSAKAN*
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+
+    ${formData.message || 'Tidak ada deskripsi tambahan'}
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━
+
+    _Mohon segera ditindaklanjuti. Terima kasih!_`;
+
+    // Nomor WhatsApp kamu (format internasional tanpa +)
+    const waNumber = '6281392813981'; 
+
+    // Encode URL agar aman
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+
+    // Buka WhatsApp agar kamu menerima pesan
+    window.open(waUrl, '_blank');
 
     setFormData({
       name: '',
@@ -173,7 +207,7 @@ const Booking = () => {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email
+                  Email (Opsional)
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -189,7 +223,7 @@ const Booking = () => {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Nomor WhatsApp <span className="text-red-600">*</span>
+                  WhatsApp <span className="text-red-600">*</span>
                 </label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />

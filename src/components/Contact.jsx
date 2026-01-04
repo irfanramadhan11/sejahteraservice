@@ -18,6 +18,7 @@ const Contact = () => {
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [logoutPassword, setLogoutPassword] = useState('');
   const [replyTexts, setReplyTexts] = useState({});
+  const [deleteConfirm, setDeleteConfirm] = useState(null);
 
   // Password admin (ganti sesuai keinginan)
   const ADMIN_PASSWORD = 'smartelectronic';
@@ -84,6 +85,7 @@ const Contact = () => {
     const updatedComments = comments.filter((c) => c.id !== id);
     setComments(updatedComments);
     localStorage.setItem('contact_messages', JSON.stringify(updatedComments));
+    setDeleteConfirm(null);
   };
 
   const handleCancelComment = () => {
@@ -114,7 +116,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,8 +131,7 @@ const Contact = () => {
             Ada Keluhan?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Kami siap menjawab dan memberikan<br />
-            solusi terbaik
+            Kami siap menjawab dan memberikan solusi terbaik
           </p>
         </motion.div>
 
@@ -208,11 +209,11 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 overflow-x-hidden"
           >
-            {/* Form Tulis Ulasan */}
+            {/* Form Ketik Ulasan */}
             <div className="bg-white rounded-2xl shadow-xl p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Tulis Ulasan</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ketik Ulasan</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -249,7 +250,7 @@ const Contact = () => {
                     onChange={(e) => setNewComment({...newComment, message: e.target.value})}
                     rows="4"
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all resize-none"
-                    placeholder="Tulis pengalaman Anda..."
+                    placeholder="Ketik saja di sini...."
                   ></textarea>
                 </div>
 
@@ -276,13 +277,13 @@ const Contact = () => {
             </div>
 
             {/* Ulasan Pelanggan */}
-            <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="bg-white rounded-2xl shadow-xl p-6 overflow-x-hidden">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">Ulasan Pelanggan</h3>
                 
                 <button
                   onClick={() => setShowAdminLogin(!showAdminLogin)}
-                  className={`text-sm flex items-center gap-2 transition-colors ${
+                  className={`text-sm flex items-center gap-1 transition-colors flex-shrink-0 ${
                     isAdmin 
                       ? 'text-green-600 hover:text-green-700 font-semibold' 
                       : 'text-gray-600 hover:text-red-600'
@@ -291,12 +292,12 @@ const Contact = () => {
                   {isAdmin ? (
                     <>
                       <Unlock className="w-4 h-4" />
-                      Admin ✓
+                      <span>Admin</span>
                     </>
                   ) : (
                     <>
                       <Lock className="w-4 h-4" />
-                      Admin
+                      <span>Admin</span>
                     </>
                   )}
                 </button>
@@ -316,17 +317,17 @@ const Contact = () => {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Password
                   </label>
-                  <div className="flex gap-2">
+                  <div className="space-y-2">
                     <input
                       type="password"
                       value={adminPassword}
                       onChange={(e) => setAdminPassword(e.target.value)}
-                      className="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                       placeholder="Masukkan password"
                     />
                     <Button
                       onClick={handleAdminLogin}
-                      className="bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full bg-red-600 hover:bg-red-700 text-white"
                     >
                       Login
                     </Button>
@@ -370,7 +371,7 @@ const Contact = () => {
 
               {/* Modal Konfirmasi Logout dengan Password */}
               {showLogoutConfirm && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-hidden">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -432,6 +433,48 @@ const Contact = () => {
                 </div>
               )}
 
+              {/* Modal Konfirmasi Hapus Ulasan */}
+              {deleteConfirm !== null && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full"
+                  >
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="text-xl font-bold text-gray-900">Konfirmasi Hapus</h3>
+                      <button
+                        onClick={() => setDeleteConfirm(null)}
+                        className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-all"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-6">
+                      Yakin ingin menghapus ulasan?
+                    </p>
+                    
+                    <div className="flex gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setDeleteConfirm(null)}
+                        className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-lg transition-all"
+                      >
+                        Batal
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteComment(deleteConfirm)}
+                        className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition-all"
+                      >
+                        Hapus
+                      </button>
+                    </div>
+                  </motion.div>
+                </div>
+              )}
+
               <div className="max-h-[500px] overflow-y-auto space-y-4">
                 {comments.length === 0 && (
                   <p className="text-gray-600 text-center py-8">Belum ada ulasan</p>
@@ -440,11 +483,7 @@ const Contact = () => {
                 {comments.map((c) => (
                   <div key={c.id} className="bg-gray-50 p-5 rounded-xl border border-gray-200 relative">
                     <button
-                      onClick={() => {
-                        if (window.confirm('Hapus ulasan ini?')) {
-                          handleDeleteComment(c.id);
-                        }
-                      }}
+                      onClick={() => setDeleteConfirm(c.id)}
                       className="absolute top-3 right-3 text-gray-400 hover:text-red-600 hover:bg-red-50 p-1.5 rounded-full transition-all"
                       title="Hapus ulasan"
                     >
@@ -471,7 +510,7 @@ const Contact = () => {
                     {!c.reply && isAdmin && (
                       <div className="mt-3 space-y-2">
                         <textarea
-                          placeholder="Tulis balasan sebagai admin..."
+                          placeholder="Ketik balasan sebagai admin..."
                           rows="3"
                           value={replyTexts[c.id] || ''}
                           onChange={(e) => setReplyTexts(prev => ({

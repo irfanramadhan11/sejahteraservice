@@ -126,7 +126,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT IMAGE */}
+          {/* RIGHT IMAGE - ANIMATED ROTATION */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -134,10 +134,16 @@ const Hero = () => {
             className="relative order-1 lg:order-2 mb-0 lg:mb-0 lg:col-span-2"
           >
             <div className="relative w-full max-w-full lg:max-w-lg xl:max-w-xl mx-auto">
-              <img
+              <motion.img
                 src={heroImage} 
                 alt="Teknisi service elektronik"
                 className="w-full h-auto object-contain max-w-full"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
               />
             </div>
           </motion.div>
